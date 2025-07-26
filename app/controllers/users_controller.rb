@@ -1,21 +1,21 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_user, only: [:edit, :update, :destroy]
-  before_action :authorize_assistant, only: [:index]
+  before_action :set_user, only: [ :show, :edit, :update, :destroy ]
+  before_action :authorize_user, only: [ :edit, :update, :destroy ]
+  before_action :authorize_assistant, only: [ :index ]
 
   # GET /users
   def index
     if current_user&.assistant?
       @users = User.all
     else
-      redirect_to root_path, alert: 'Access denied. Only assistants can view all users.'
+      redirect_to root_path, alert: "Access denied. Only assistants can view all users."
     end
   end
 
   # GET /users/:id
   def show
     unless current_user&.assistant? || current_user == @user
-      redirect_to root_path, alert: 'Access denied. You can only view your own profile.'
+      redirect_to root_path, alert: "Access denied. You can only view your own profile."
     end
   end
 
@@ -27,9 +27,9 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-    
+
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to @user, notice: "User was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,14 +38,14 @@ class UsersController < ApplicationController
   # GET /users/:id/edit
   def edit
     unless current_user&.assistant? || current_user == @user
-      redirect_to root_path, alert: 'Access denied. You can only edit your own profile.'
+      redirect_to root_path, alert: "Access denied. You can only edit your own profile."
     end
   end
 
   # PATCH/PUT /users/:id
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: "User was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -54,9 +54,9 @@ class UsersController < ApplicationController
   # DELETE /users/:id
   def destroy
     if @user.destroy
-      redirect_to users_url, notice: 'User was successfully deleted.'
+      redirect_to users_url, notice: "User was successfully deleted."
     else
-      redirect_to @user, alert: 'Unable to delete user.'
+      redirect_to @user, alert: "Unable to delete user."
     end
   end
 
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to users_path, alert: 'User not found.'
+    redirect_to users_path, alert: "User not found."
   end
 
   def user_params
@@ -79,13 +79,13 @@ class UsersController < ApplicationController
 
   def authorize_user
     unless current_user&.assistant? || current_user == @user
-      redirect_to root_path, alert: 'Access denied.'
+      redirect_to root_path, alert: "Access denied."
     end
   end
 
   def authorize_assistant
     unless current_user&.assistant?
-      redirect_to root_path, alert: 'Access denied. Only assistants can perform this action.'
+      redirect_to root_path, alert: "Access denied. Only assistants can perform this action."
     end
   end
 
