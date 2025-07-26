@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  assistant: one
+  course_ids: MyText
+  problem_description: MyText
+  telegram_username: MyString
+
+two:
+  user: two
+  assistant: two
+  course_ids: MyText
+  problem_description: MyText
+  telegram_username: MyString
