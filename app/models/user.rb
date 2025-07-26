@@ -7,7 +7,7 @@ class User < ApplicationRecord
     validates :email, uniqueness:true
     validates :role, presence: true, inclusion: { in: %w[ user assistant ] }
     validates :academic_year, presence: true
-    validates :password, presence:true, length {greater_than_or_equal_to: 8}
+    validates :password, presence: true, length: { minimum: 8 }
     
     def assistant?
         role == "assistant"
