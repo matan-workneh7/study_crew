@@ -55,6 +55,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_113806) do
 
   add_foreign_key "assistantcourses", "courses"
   add_foreign_key "assistantcourses", "users", column: "assistant_id"
-  add_foreign_key "connections", "user", column: "assistant_id"
+  add_foreign_key "connections", "users", column: "assistant_id"
   add_foreign_key "connections", "users"
 end

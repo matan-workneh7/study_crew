@@ -62,4 +62,10 @@ group :test do
   gem "selenium-webdriver"
   # Use mocha for stubbing in tests
   gem "mocha"
+  
+  # RSpec for testing
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "shoulda-matchers"
 end
