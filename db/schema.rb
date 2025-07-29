@@ -23,9 +23,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_113806) do
   create_table "connections", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "assistant_id", null: false
+    t.string "status"
+    t.string "telegram_username"
     t.text "course_ids"
     t.text "problem_description"
-    t.string "telegram_username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["assistant_id"], name: "index_connections_on_assistant_id"
@@ -55,6 +56,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_113806) do
 
   add_foreign_key "assistantcourses", "courses"
   add_foreign_key "assistantcourses", "users", column: "assistant_id"
-  add_foreign_key "connections", "users", column: "assistant_id"
   add_foreign_key "connections", "users"
+  add_foreign_key "connections", "users", column: "assistant_id"
 end

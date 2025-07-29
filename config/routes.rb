@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   #root "users#index"
 
   resources :users
+  resources :connections
 
   # Catch-all for unknown routes (must be last)
   match '*unmatched', to: 'application#route_not_found', via: :all
