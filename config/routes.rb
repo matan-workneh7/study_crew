@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :users
   resources :connections
 
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
   # Catch-all for unknown routes (must be last)
   match '*unmatched', to: 'application#route_not_found', via: :all
 end
