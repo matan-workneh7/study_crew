@@ -1,4 +1,6 @@
-has_secure_password
+class User < ApplicationRecord
+  
+    has_secure_password
     
     #used to define the assistant and their courses
     has_many :assistant_courses, foreign_key: :assistant_id
