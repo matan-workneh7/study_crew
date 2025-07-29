@@ -11,11 +11,10 @@ class UsersController < ApplicationController
 
   # GET /users/:id
   def show
-    user = User.find_by(id: params[:id])
-    if user.nil?
+    if @user.nil?
       render json: { error: 'User not found.' }, status: :not_found
     else
-      render json: { error: 'Access denied. You can only view your own profile.' }, status: :forbidden
+      render json: @user
     end
   end
 
@@ -31,7 +30,9 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/:id
   def update
-    if @user.update(user_params)
+    if @user.nil?
+      render json: { error: 'User not found.' }, status: :not_found
+    elsif @user.update(user_params)
       render json: @user
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
