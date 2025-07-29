@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -12,5 +13,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   #root "users#index"
 
+=======
+>>>>>>> debe659 (added the necessary models to user)
   resources :users
 end
