@@ -1,0 +1,92 @@
+/* StrugleSection.css */
+.strugle-section {
+  background: white;
+  padding: 4rem 2rem;
+}
+
+.strugle-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.strugle-content {
+  text-align: center;
+}
+
+.strugle-content h2 {
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.strugle-content h3 {
+  font-size: 1.25rem;
+  color: #4b5563;
+  font-weight: 400;
+  margin-bottom: 3rem;
+}
+
+.tutor-options {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.option-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.option-card h4 {
+  color: #1e40af;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.option-card p {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.option-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option-btn.outline {
+  background: white;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+}
+
+.option-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tutor-options {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .option-card {
+    max-width: 100%;
+  }
+}
+
+
