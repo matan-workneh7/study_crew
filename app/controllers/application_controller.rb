@@ -8,5 +8,5 @@ class ApplicationController < ActionController::API
     @current_user ||= User.find_by(id: session[:user_id])
   end
   # Skip CSRF protection for JSON requests (API)
-  protect_from_forgery with: :null_session, if: -> { request.format.json? }
+  #protect_from_forgery with: :null_session, if: -> { request.format.json? }
 end

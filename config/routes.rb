@@ -14,6 +14,12 @@ Rails.application.routes.draw do
 
   resources :users
   resources :connections
+  resources :courses
+  resources :assistant_courses
+  
+  # Custom routes for assistant_courses
+  get '/assistant_courses/by_assistant/:assistant_id', to: 'assistant_courses#by_assistant'
+  get '/assistant_courses/by_course/:course_id', to: 'assistant_courses#by_course'
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
