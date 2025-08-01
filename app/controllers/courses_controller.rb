@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :update, :destroy]
+  before_action :set_course, only: [:index, :show, :update, :destroy]
   #before_action :authorize_assistant, only: [:index, :create, :update, :destroy]
   #before_action :authorize_user, only: [:show]
 
